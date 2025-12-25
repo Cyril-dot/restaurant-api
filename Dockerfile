@@ -37,4 +37,4 @@ ENV DB_PASSWORD=YOUR_VPANEL_PASSWORD
 ENV KEYSTORE_PASSWORD=StrongPass123!
 
 # Start the Spring Boot app with HTTPS
-CMD ["java", "-jar", "target/restaurant-api-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/Restaurant_Application-0.0.1-SNAPSHOT.jar"]
