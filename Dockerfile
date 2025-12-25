@@ -18,23 +18,21 @@ COPY .mvn .mvn
 # Make mvnw executable
 RUN chmod +x mvnw
 
-# Copy source code and keystore
+# Copy source code
 COPY src ./src
-COPY src/main/resources/keystore.p12 ./src/main/resources/keystore.p12
 
 # Build the Spring Boot project
 RUN ./mvnw clean package -DskipTests
 
-# Expose HTTPS port
+# Expose port from Render environment variable
 EXPOSE 8443
 
-# Set environment variables for Railway MySQL and keystore
+# Set environment variables for Railway MySQL
 ENV DB_HOST=mysql.railway.internal
 ENV DB_PORT=3306
 ENV DB_NAME=railway
 ENV DB_USERNAME=root
 ENV DB_PASSWORD=mEPWHVfMCNeSalHXYAwkbiDMgKQdjdxc
-ENV KEYSTORE_PASSWORD=StrongPass123!
 
-# Start the Spring Boot app with HTTPS
-CMD ["java", "-jar", "target/Restaurant_Application-0.0.1-SNAPSHOT.jar"]
+# Start the Spring Boot app using Render's PORT variable
+CMD ["sh", "-c", "java -Dserver.port=$PORT -jar target/Restaurant_Application-0.0.1-SNAPSHOT.jar"]
