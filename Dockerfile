@@ -28,12 +28,12 @@ RUN ./mvnw clean package -DskipTests
 # Expose HTTPS port
 EXPOSE 8443
 
-# Set environment variables for MySQL and keystore
-ENV DB_HOST=sql112.infinityfree.com
+# Set environment variables for Railway MySQL and keystore
+ENV DB_HOST=mysql.railway.internal
 ENV DB_PORT=3306
-ENV DB_NAME=if0_40762454_restaurant_db
-ENV DB_USERNAME=if0_40762454
-ENV DB_PASSWORD=YOUR_VPANEL_PASSWORD
+ENV DB_NAME=railway
+ENV DB_USERNAME=root
+ENV DB_PASSWORD=mEPWHVfMCNeSalHXYAwkbiDMgKQdjdxc
 ENV KEYSTORE_PASSWORD=StrongPass123!
 
 # Start the Spring Boot app with HTTPS
