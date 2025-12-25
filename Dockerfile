@@ -15,7 +15,10 @@ WORKDIR /app
 COPY mvnw pom.xml ./
 COPY .mvn .mvn
 
-# Copy source code
+# Make mvnw executable
+RUN chmod +x mvnw
+
+# Copy source code and keystore
 COPY src ./src
 COPY src/main/resources/keystore.p12 ./src/main/resources/keystore.p12
 
