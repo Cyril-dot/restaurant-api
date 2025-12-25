@@ -17,7 +17,7 @@ COPY .mvn .mvn
 
 # Copy source code
 COPY src ./src
-COPY keystore.p12 ./src/main/resources/keystore.p12
+COPY src/main/resources/keystore.p12 ./src/main/resources/keystore.p12
 
 # Build the Spring Boot project
 RUN ./mvnw clean package -DskipTests
